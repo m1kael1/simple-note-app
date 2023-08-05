@@ -1,7 +1,8 @@
 import React from "react";
 import { BsTrash3 } from "react-icons/bs";
 
-const CardNote = ({ id, title, text, date, color, handleDeleteNote }) => {
+const CardNote = ({ note, handleDeleteNote }) => {
+	const { id, title, text, date, color } = note;
 	return (
 		<div
 			style={{ backgroundColor: `${color}` }}

@@ -15,7 +15,7 @@ const AddNotes = ({ handleAddNewNote }) => {
 
 	return (
 		<>
-			<div className="w-full flex justify-center">
+			<div className="w-full flex justify-end">
 				<div className="p-4 w-full mx-auto max-w-[600px] m-auto absolute  bg-gray-800 rounded-md mt-2 border-gray-400 ">
 					<h2 className=" mb-4 font-semibold text-white">Add Notes</h2>
 

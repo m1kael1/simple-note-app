@@ -1,18 +1,21 @@
 import React, { useState } from "react";
+
 import { BsPencilSquare, BsSearch } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 import AddNotes from "./AddNotes";
 
 const Header = ({ handleAddNewNote }) => {
 	const [openSearch, setOpenSearch] = useState(false);
-	const [openAddNotes, setAddNotes] = useState(false);
+	const [openAddNotes, setOpenAddNotes] = useState(false);
 
 	function handleSearch() {
 		setOpenSearch(!openSearch);
+		setOpenAddNotes(false);
 	}
 
 	function handleAddNotes() {
-		setAddNotes(!openAddNotes);
+		setOpenAddNotes(!openAddNotes);
+		setOpenSearch(false);
 		console.log(openAddNotes);
 	}
 
@@ -49,18 +52,16 @@ const Header = ({ handleAddNewNote }) => {
 							} `}
 						>
 							<input
-								style={{
-									transition: "opacity 1s",
-									opacity: openSearch ? "1" : "0",
-								}}
 								type="text"
 								name="search notes"
 								id="search-notes"
 								placeholder="Search Notes..."
 								className={`outline-0 p-2 ${
-									openSearch ? "w-56 max-[500px]:w-full" : " w-0 "
+									openSearch
+										? "w-56 max-[500px]:w-full opacity-100"
+										: " w-0 opacity-0"
 								}
-            bg-gray-600 min-[501px]:duration-500`}
+            bg-gray-600 min-[501px]:duration-[1500ms]`}
 							/>
 							<span
 								onClick={() => handleSearch()}
@@ -74,7 +75,9 @@ const Header = ({ handleAddNewNote }) => {
 				<div
 					style={{
 						transition: "all 1s ease-in-out ",
-						clipPath: openAddNotes ? "circle(300%)" : "circle(0%)",
+						clipPath: openAddNotes
+							? "circle(200% at 100% 50%)"
+							: "circle(0% at 100% 50%)",
 					}}
 				>
 					<AddNotes handleAddNewNote={handleAddNewNote} />
