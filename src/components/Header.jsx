@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { BsPencilSquare, BsSearch } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 import AddNotes from "./AddNotes";
@@ -21,7 +21,7 @@ const Header = ({ handleAddNewNote }) => {
 
 	return (
 		<>
-			<div className="sticky top-0">
+			<div className="sticky top-0 z-50">
 				<div className="relative rounded mt-2 flex bg-gray-800 text-white p-4 justify-between items-center ">
 					<h1 className="text-xl font-extrabold">Simp.Notes</h1>
 					<div className="flex gap-4">
@@ -61,7 +61,7 @@ const Header = ({ handleAddNewNote }) => {
 										? "w-56 max-[500px]:w-full opacity-100"
 										: " w-0 opacity-0"
 								}
-            bg-gray-600 min-[501px]:duration-[1500ms]`}
+            bg-gray-600 min-[501px]:duration-[1000ms]`}
 							/>
 							<span
 								onClick={() => handleSearch()}
@@ -72,16 +72,14 @@ const Header = ({ handleAddNewNote }) => {
 						</div>
 					</div>
 				</div>
-				<div
-					style={{
-						transition: "all 1s ease-in-out ",
-						clipPath: openAddNotes
-							? "circle(200% at 100% 50%)"
-							: "circle(0% at 100% 50%)",
-					}}
+				<motion.div
+					initial={{ opacity: 0, y: -20 }}
+					animate={{ opacity: openAddNotes ? 1 : 0, y: openAddNotes ? 0 : -20 }}
+					exit={{ opacity: 0, y: -20 }}
+					transition={{ duration: 0.3, ease: "easeInOut" }}
 				>
-					<AddNotes handleAddNewNote={handleAddNewNote} />
-				</div>
+					{openAddNotes && <AddNotes handleAddNewNote={handleAddNewNote} />}
+				</motion.div>
 			</div>
 		</>
 	);
