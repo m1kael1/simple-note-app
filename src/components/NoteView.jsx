@@ -18,7 +18,7 @@ const NoteView = ({ note, handleCloseNote, handleEditNote }) => {
 		>
 			<div className="w-full relative  flex justify-between items-start ">
 				<div>
-					<h1 className=" mb-2 text-2xl font-bold tracking-tight text-white">
+					<h1 className=" mb-2 text-2xl font-bold tracking-tight text-white break-all">
 						{title}
 					</h1>
 
@@ -41,7 +41,7 @@ const NoteView = ({ note, handleCloseNote, handleEditNote }) => {
 				<motion.p
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
-					className="custom-scrollbar pr-2 overflow-y-scroll text-justify "
+					className="custom-scrollbar pr-2 overflow-y-scroll text-justify break-all "
 				>
 					{text}
 				</motion.p>

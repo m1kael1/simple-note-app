@@ -28,7 +28,7 @@ const CardNote = ({ note, handleDeleteNote, handleEditNote }) => {
 				className="flex h-full flex-col w-full justify-between p-4 leading-normal "
 			>
 				<div>
-					<h5 className="mb-2 text-2xl font-bold pr-6  tracking-tight text-white">
+					<h5 className="break-all mb-2 text-2xl font-bold pr-6  tracking-tight text-white">
 						{title}
 					</h5>
 					<p className="mb-3 font-normal w-full h-[auto] text-justify text-white overflow-y-auto truncate ">
