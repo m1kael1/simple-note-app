@@ -14,11 +14,13 @@ const Notes = () => {
 					text: "This is simple notes app",
 					date: "5/8/2023",
 					color: "#1f2937",
-					character: 0,
+					characters: 24,
 				},
 			]
 		);
 	});
+
+	const [searchNote, setSearchNote] = useState("");
 
 	useEffect(() => {
 		localStorage.setItem("simple-notes-data", JSON.stringify(notes));
@@ -36,11 +38,17 @@ const Notes = () => {
 		};
 		const newNotes = [...notes, newNote];
 		setNotes(newNotes);
-		console.log(newNote);
 	};
 
+	const onSearchNote = (search) => {
+		setSearchNote(search);
+	};
+
+	const filteredNotes = notes.filter((note) =>
+		note.title.toLowerCase().includes(searchNote.toLowerCase())
+	);
+
 	const deleteNote = (id) => {
-		console.log(id);
 		const newNotes = notes.filter((note) => note.id !== id);
 		setNotes(newNotes);
 	};
@@ -48,10 +56,10 @@ const Notes = () => {
 	return (
 		<div className="flex flex-col items-center mx-4 gap-2 ">
 			<div className="container flex-col flex gap-2 ">
-				<Header handleAddNewNote={addNewNote} />
+				<Header handleAddNewNote={addNewNote} onSearch={onSearchNote} />
 				<div className="flex flex-wrap  gap-2 justify-center min-[1300px]:grid min-[1300px]:grid-cols-3 min-[1300px]:gap-4">
-					{notes.map((note, index) => (
-						<CardNote note={note} handleDeleteNote={deleteNote} />
+					{filteredNotes.map((note, index) => (
+						<CardNote key={index} note={note} handleDeleteNote={deleteNote} />
 					))}
 				</div>
 			</div>
