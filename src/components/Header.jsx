@@ -4,19 +4,22 @@ import { BsPencilSquare, BsSearch } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 import AddNotes from "./AddNotes";
 
-const Header = ({ handleAddNewNote }) => {
+const Header = ({ handleAddNewNote, onSearch }) => {
 	const [openSearch, setOpenSearch] = useState(false);
 	const [openAddNotes, setOpenAddNotes] = useState(false);
 
-	function handleSearch() {
+	const handleOpenSearch = () => {
 		setOpenSearch(!openSearch);
 		setOpenAddNotes(false);
-	}
+	};
+	const handleSearch = (e) => {
+		const valueSearch = event.target.value;
+		onSearch(valueSearch);
+	};
 
 	function handleAddNotes() {
 		setOpenAddNotes(!openAddNotes);
 		setOpenSearch(false);
-		console.log(openAddNotes);
 	}
 
 	return (
@@ -52,6 +55,7 @@ const Header = ({ handleAddNewNote }) => {
 							} `}
 						>
 							<input
+								onChange={handleSearch}
 								type="text"
 								name="search notes"
 								id="search-notes"
@@ -64,7 +68,7 @@ const Header = ({ handleAddNewNote }) => {
             bg-gray-600 min-[501px]:duration-[1000ms]`}
 							/>
 							<span
-								onClick={() => handleSearch()}
+								onClick={() => handleOpenSearch()}
 								className="absolute bg-gray-600 p-2 cursor-pointer rounded right-0 "
 							>
 								{openSearch ? <MdOutlineClose color="white" /> : <BsSearch />}
