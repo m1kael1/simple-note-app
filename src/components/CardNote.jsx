@@ -3,7 +3,7 @@ import { BsTrash3 } from "react-icons/bs";
 import NoteView from "./NoteView";
 import { motion } from "framer-motion";
 
-const CardNote = ({ note, handleDeleteNote }) => {
+const CardNote = ({ note, handleDeleteNote, handleEditNote }) => {
 	const [openNote, setOpenNote] = useState(false);
 	const { id, title, text, date, color, characters } = note;
 
@@ -48,7 +48,21 @@ const CardNote = ({ note, handleDeleteNote }) => {
 			>
 				<BsTrash3 size={15} color="white" />
 			</span>
-			{openNote && <NoteView note={note} handleCloseNote={handleOpenNote} />}
+			{openNote && (
+				<div
+					className={`fixed visible w-full h-full flex min-w-[300px] justify-center md:items-center left-0 top-0 z-50 text-white bg-black bg-opacity-70 `}
+				>
+					<span
+						onClick={() => handleOpenNote()}
+						className="fixed w-full h-full min-w-[300px] min-h-[100vh]"
+					></span>
+					<NoteView
+						note={note}
+						handleCloseNote={handleOpenNote}
+						handleEditNote={handleEditNote}
+					/>
+				</div>
+			)}
 		</motion.div>
 	);
 };

@@ -1,26 +1,40 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsPencilSquare, BsSearch } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 import AddNotes from "./AddNotes";
+import EditNotes from "./EditNotes";
+import { motion } from "framer-motion";
 
-const Header = ({ handleAddNewNote, onSearch }) => {
+const Header = ({ handleAddNewNote, onSearch, handleUpdateNote, onEdit }) => {
+	const { data, open } = onEdit;
 	const [openSearch, setOpenSearch] = useState(false);
 	const [openAddNotes, setOpenAddNotes] = useState(false);
 
 	const handleOpenSearch = () => {
 		setOpenSearch(!openSearch);
 		setOpenAddNotes(false);
-	};
-	const handleSearch = (e) => {
-		const valueSearch = event.target.value;
-		onSearch(valueSearch);
+		onEdit.open = false;
 	};
 
-	function handleAddNotes() {
+	const handleAddNotes = () => {
 		setOpenAddNotes(!openAddNotes);
 		setOpenSearch(false);
-	}
+		setOpenSearch(false);
+		onEdit.open = false;
+	};
+	const handleSearch = (e) => {
+		const valueSearch = e.target.value;
+		onSearch(valueSearch);
+	};
+	useEffect(() => {
+		if (onEdit.open === true) {
+			setOpenAddNotes(true);
+			setOpenSearch(false);
+		} else {
+			setOpenAddNotes(false);
+			setOpenSearch(false);
+		}
+	}, [open]);
 
 	return (
 		<>
@@ -59,7 +73,7 @@ const Header = ({ handleAddNewNote, onSearch }) => {
 								type="text"
 								name="search notes"
 								id="search-notes"
-								placeholder="Search Notes..."
+								placeholder="Search notes by title..."
 								className={`outline-0 p-2 ${
 									openSearch
 										? "w-56 max-[500px]:w-full opacity-100"
@@ -78,11 +92,16 @@ const Header = ({ handleAddNewNote, onSearch }) => {
 				</div>
 				<motion.div
 					initial={{ opacity: 0, y: -20 }}
-					animate={{ opacity: openAddNotes ? 1 : 0, y: openAddNotes ? 0 : -20 }}
-					exit={{ opacity: 0, y: -20 }}
-					transition={{ duration: 0.3, ease: "easeInOut" }}
+					animate={{
+						opacity: openAddNotes || open ? 1 : 0,
+						y: openAddNotes || open ? 0 : -20,
+					}}
+					transition={{ duration: 0.3 }}
 				>
 					{openAddNotes && <AddNotes handleAddNewNote={handleAddNewNote} />}
+					{open && (
+						<EditNotes handleUpdateNote={handleUpdateNote} onEdit={data} />
+					)}
 				</motion.div>
 			</div>
 		</>
