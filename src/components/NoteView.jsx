@@ -14,15 +14,15 @@ const NoteView = ({ note, handleCloseNote, handleEditNote }) => {
 			style={{
 				backgroundColor: color,
 			}}
-			className="z-[51] h-auto min-h-[132px]  max-w-[500px] p-4 w-full md:rounded-md  "
+			className="z-[51] max-h-screen   min-h-[150px] md:h-content  max-w-[500px] p-4 w-full md:rounded-md   "
 		>
-			<div className="w-full relative  flex justify-between items-start ">
+			<div className="w-full relative  flex justify-between items-start l ">
 				<div>
-					<h1 className=" mb-2 text-2xl font-bold tracking-tight text-white break-all">
+					<h1 className=" whitespace-pre-wrap mb-2 text-2xl font-bold tracking-tight text-white break-all">
 						{title}
 					</h1>
 
-					<p className="text-[14px] mb-2">{date}</p>
+					<p className=" text-[14px] mb-2">{date}</p>
 				</div>
 				<button onClick={() => handleCloseNote()}>
 					<MdOutlineClose size={25} />
@@ -37,15 +37,16 @@ const NoteView = ({ note, handleCloseNote, handleEditNote }) => {
 				</span>
 			</div>
 			<hr />
-			<div className=" mt-2 ">
+			<div className="custom-scrollbar my-2 h-[85%] md:max-h-[60vh]   overflow-y-scroll">
 				<motion.p
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
-					className="custom-scrollbar pr-2 overflow-y-scroll text-justify break-all "
+					className="whitespace-pre-wrap  pr-2  text-justify break-all "
 				>
 					{text}
 				</motion.p>
 			</div>
+			<hr />
 		</motion.div>
 	);
 };
