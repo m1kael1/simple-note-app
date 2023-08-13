@@ -17,7 +17,7 @@ const Notes = () => {
 					title: "Simple Notes",
 					text: "This is simple notes app",
 					date: "5/8/2023",
-					color: "#1f2937",
+					color: "#232c39",
 					characters: 24,
 				},
 			]
