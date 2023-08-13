@@ -1,7 +1,7 @@
 
 # Simple-Notes-App
 
-Ini adalah aplikasi catatan sederhana berbasis web dengan ReactJs.
+Ini adalah aplikasi catatan sederhana berbasis web dengan [ReactJs](https://react.dev/).
 ## Demo 
  [Simple-Notes-App](https://simple-note-app-theta.vercel.app)
 ## Features
