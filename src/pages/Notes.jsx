@@ -6,10 +6,7 @@ import Header from "../components/Header";
 const Notes = () => {
 	const [notes, setNotes] = useState(() => {
 		const savedNotes = JSON.parse(localStorage.getItem("simple-notes-data"));
-		if (savedNotes) {
-			savedNotes.sort((a, b) => new Date(b.date) - new Date(a.date));
-			return savedNotes;
-		}
+
 		return (
 			savedNotes || [
 				{
@@ -17,7 +14,7 @@ const Notes = () => {
 					title: "Simple Notes",
 					text: "This is simple notes app",
 					date: "5/8/2023",
-					color: "#232c39",
+					color: "#1f2937",
 					characters: 24,
 				},
 			]
