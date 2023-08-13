@@ -40,7 +40,7 @@ const Header = ({ handleAddNewNote, onSearch, handleUpdateNote, onEdit }) => {
 		<>
 			<div className="sticky top-0 z-50">
 				<div className="relative rounded mt-2 flex bg-gray-800 text-white p-4 justify-between items-center ">
-					<h1 className="text-xl font-extrabold">Simp.Notes</h1>
+					<h1 className="text-xl font-extrabold">Simpl.Notes</h1>
 					<div className="flex gap-4">
 						<div
 							onClick={() => {

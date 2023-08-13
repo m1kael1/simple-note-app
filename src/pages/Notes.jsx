@@ -6,6 +6,10 @@ import Header from "../components/Header";
 const Notes = () => {
 	const [notes, setNotes] = useState(() => {
 		const savedNotes = JSON.parse(localStorage.getItem("simple-notes-data"));
+		if (savedNotes) {
+			savedNotes.sort((a, b) => new Date(b.date) - new Date(a.date));
+			return savedNotes;
+		}
 		return (
 			savedNotes || [
 				{
