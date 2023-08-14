@@ -28,7 +28,7 @@ const Header = ({ handleAddNewNote, onSearch, handleUpdateNote, onEdit }) => {
 	};
 	useEffect(() => {
 		let openEdit = onEdit.open 
-		openEdit? (setOpenAddNotes(true),setOpenSearch(false)) : (setOpenSearch(false));
+		openEdit ? (setOpenAddNotes(true),setOpenSearch(false)) : (setOpenSearch(false));
 		
 	}, [open]);
 
