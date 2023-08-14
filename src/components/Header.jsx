@@ -27,10 +27,12 @@ const Header = ({ handleAddNewNote, onSearch, handleUpdateNote, onEdit }) => {
 		onSearch(valueSearch);
 	};
 	useEffect(() => {
-		if (onEdit.open === true) {
+		let openEdit = onEdit.open 
+		openEdit? (
 			setOpenAddNotes(true);
-			setOpenSearch(false);
-		}
+			setOpenSearch(false);)
+			: (setOpenSearch(false);)
+		
 	}, [open]);
 
 	return (
