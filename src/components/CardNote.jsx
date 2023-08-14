@@ -19,7 +19,7 @@ const CardNote = ({ note, handleDeleteNote, handleEditNote }) => {
 			style={{
 				backgroundColor: color,
 			}}
-			className={`flex relative cursor-pointer flex-col items-center border rounded-lg shadow md:max-w-[356px] md:flex-row lg:max-w-[490px] group w-full min-h-[132px] 	${
+			className={`flex relative cursor-pointer flex-col items-center border rounded-lg shadow md:max-w-[356px] md:flex-row lg:max-w-[490px]  w-full min-h-[132px] 	${
 				openNote ? " invisible " : " "
 			} `}
 		>
@@ -38,13 +38,13 @@ const CardNote = ({ note, handleDeleteNote, handleEditNote }) => {
 
 				<div className="flex justify-between items-center text-white">
 					<p>{date}</p>
-					<p>{characters}/500</p>
+					<p>{characters}/999</p>
 				</div>
 			</div>
 
 			<span
 				onClick={() => handleDeleteNote(id)}
-				className="absolute right-4 top-4 cursor-pointer bg-gray-600  p-2 rounded-lg hover:bg-red-700 duration-200 lg:opacity-[0%] group-hover:opacity-[100%] "
+				className="absolute right-4 top-4 cursor-pointer  p-1 rounded-lg bg-red-700 lg:bg-transparent hover:bg-red-700 duration-200  "
 			>
 				<BsTrash3 size={15} color="white" />
 			</span>

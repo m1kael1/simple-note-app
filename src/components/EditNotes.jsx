@@ -32,7 +32,6 @@ const EditNotes = ({ handleUpdateNote, onEdit }) => {
 		setUpdateText(text);
 		setUpdateColor(color);
 		setUpdateCharacterCount(characters);
-		console.log(title, "refresh");
 	}, [id]);
 
 	return (
@@ -44,7 +43,7 @@ const EditNotes = ({ handleUpdateNote, onEdit }) => {
 					}}
 					className="p-4 w-full mx-auto  max-w-[500px] m-auto absolute  rounded-md mt-2 border-gray-400 "
 				>
-					<h2 className=" mb-4 font-bold text-white">Add Notes</h2>
+					<h2 className=" mb-4 font-bold text-white">Edit Notes</h2>
 
 					<form onSubmit={handleSubmit}>
 						<div className="mb-4">
@@ -70,10 +69,10 @@ const EditNotes = ({ handleUpdateNote, onEdit }) => {
 								style={{ backgroundColor: updateColor }}
 								onChange={(e) => setUpdateText(e.target.value)}
 								className="shadow text-white appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline "
-								maxLength={500}
+								maxLength={999}
 							></textarea>
 							<div className="w-full flex justify-end">
-								<p className="text-white">{updateCharacterCount}/500</p>
+								<p className="text-white">{updateCharacterCount}/999</p>
 							</div>
 						</div>
 						<EditColorsBackground

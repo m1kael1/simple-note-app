@@ -50,8 +50,6 @@ const Notes = () => {
 			note.title && note.title.toLowerCase().includes(searchNote.toLowerCase())
 	);
 
-	console.log(notes);
-
 	const deleteNote = (id) => {
 		const newNotes = notes.filter((note) => note.id !== id);
 		setNotes(newNotes);
@@ -76,7 +74,7 @@ const Notes = () => {
 		);
 
 		setNotes(updatedNotes);
-		setOnEditNote({ data: {}, open: false });
+		setOnEditNote({ open: false });
 	};
 
 	return (

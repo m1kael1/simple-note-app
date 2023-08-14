@@ -14,11 +14,11 @@ const NoteView = ({ note, handleCloseNote, handleEditNote }) => {
 			style={{
 				backgroundColor: color,
 			}}
-			className="z-[51] max-h-screen   min-h-[150px] md:h-content  max-w-[500px] p-4 w-full md:rounded-md   "
+			className="z-[51] max-h-screen cursor-default  min-h-[150px] md:h-content  max-w-[500px] p-4 w-full md:rounded-md   "
 		>
 			<div className="w-full relative  flex justify-between items-start l ">
 				<div>
-					<h1 className=" whitespace-pre-wrap mb-2 text-2xl font-bold tracking-tight text-white break-all">
+					<h1 className=" whitespace-pre-wrap mb-2 mr-2 text-2xl font-bold tracking-tight text-white break-all">
 						{title}
 					</h1>
 

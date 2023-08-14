@@ -57,10 +57,10 @@ const AddNotes = ({ handleAddNewNote }) => {
 								style={{ backgroundColor: color }}
 								onChange={(e) => setText(e.target.value)}
 								className="shadow text-white appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline "
-								maxLength={500}
+								maxLength={999}
 							></textarea>
 							<div className="w-full flex justify-end">
-								<p className="text-white">{characterCount}/500</p>
+								<p className="text-white">{characterCount}/999</p>
 							</div>
 						</div>
 						<ColorsBackground onSelectColor={selectColor} />

@@ -15,7 +15,6 @@ const ColorsBackground = ({ onSelectColor }) => {
 	const handleColorSelect = (color) => {
 		setSelectedColor(color);
 		onSelectColor(color);
-		console.log("bgcolor :", color);
 	};
 
 	return (
